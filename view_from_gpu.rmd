@@ -1,0 +1,649 @@
+---
+title: 'The View from the GPU: the problem of platform knowing'
+author: 'Adrian Mackenzie'
+abstract: "This paper presents an attempt to speak appropriately about the absorption of images into platform operations and infrastructures. How should we explain the multiplicity of transformations of images and the new operational combinations they display? The paper will explore the mixture of mundane combinations and unpredictable transformations that have appeared in some spectacular platform demonstrations (e.g. AlphaGo, Facebook's  planetary settlement model ) from the standpoint of the GPU, or graphics processing units, that have become central to many predictive models working with iamges.   It traces the embedding of images in a GPU-based model as a process that transforms collections into a highly condensed indexical field, a field that allows platforms to generate predictive propositions or statements about the world.  In describing how predictive indexicality takes shape on platforms and machine learning models, the altered collectivity of images under platform conditions becomes more evident. The aim here is to reverse the viewpoint of most recent accounts of AI, and to unfold the labyrinth of operations that have generated the quasi-transcendence effect that animates many recent accounts and debates about AI/machine learning."   
+date: '1 Feb 2018'
+bibliography: ['ensembles.bib', 'mackenzie.bib', 'uni.bib']
+--- 
+
+```{r, echo=FALSE, message = FALSE}
+library(knitr)
+opts_chunk$set(message = FALSE, warning = FALSE, cache = TRUE, dev=svg)
+```
+
+## 
+
+In the summer of 2018 Google employees objected to their employer's 'Project Maven' contract with the US Department of Defence [@Simonite_2018].
+They petitioned against use of the Google platform's machine learning and image recognition capacities for the identification of '38 classes of objects' in surveillance and combat drone video footage [@Pellerin_2017].
+Platforms generate knowledge of their fields of observation, often massively so, as part and parcel of their operation.
+Their knowing is problematic, 'imbued with relational play of truth and falsehood' [@Rabinow_2003]
+They trouble the relationship between observers and situations.
+Platform knowing can be used to manipulate and control people in many different ways, as in 'deep fake news' [@Chesney_2018] or Facebook's 'emotional contagion.'
+Access to platform knowledge is vastly asymmetrical (as seen, for instance, in the analysis of Yahoo webcam images [@Ackerman_2014]). 
+Errors, biases and discrimination course through so much platform knowing. 
+Running under these controversies, there is a deeper problem of how to ground the knowing these platforms do in a liveable world, how to slow down their acceleration given that they touch almost everything: sciences, education, government, warfare, health, media and popular culture.
+Would we want platform knowing to be a 'positive, experiencable operation'? [@James_1975]
+
+The problem concerns if and how platforms know. 
+What, for instance,  do platforms know about doors? 
+It would be a step in the wrong direction to ask questions about platform epistemology, knowing subjects and known objects.  
+It is far easier to work with a pragmatic understanding of knowing as acting and event derived from William James.
+In James' understanding, one experience can be said to know another when a continuous path of felt transitions connects them. 
+Knowing, as Bruno Latour re-formulates James, is 'a _trajectory_, or, to use a more abstract term, a  _vector_ that projects "retroactively" its "validating power"' [@Latour_2007, 88].[^vector]  
+James' take on knowing is provocative for several reasons.  
+For James, the vector character of knowing is always somewhat expedient, virtual, or shortcut.
+All knowing has an element of acceleration. 
+Following that we could ask: what are the vectors of platform knowing?[^lynch]
+James' account also points to the problem of how the shortcut paths, vectors or trajectories of knowing retroactively project validating power.
+Attending to validation might able us to ask how platform knowledge becomes problematically viable.
+
+[^vector]: It is important to know that a vector in linear algebra is an array of numbers, arranged in order and indexed by that order. Linear algebra is an operational prerequisite for nearly all  machine learning-based knowing. (See [@Mackenzie_2017], Chapter 3.)
+
+[^lynch]: Michael Lynch suggests *ontography* as one way of following trajectories: 'conduct empirical studies of specific instances in which ontological questions are 'in actuality decided through specific, historical, cultural, technological, scientific interventions', and then, if one so chooses, to go further with experimental interventions' [@Lynch_2013]. The specific instances studies in this paper demonstrate many such interventions. 
+
+A second part of the problem is the platform.
+The term 'platform'  can  describe all manner of arrangements. 
+The term is a figure for a variety speaking positions and technologies, as Tarleton Gillespie suggests [@Gillespie_2010]. 
+In recent usage, it refers to  an ensemble of devices, systems and networks configured so that different groups can access them (see the burgeoning platform economy literature [@McAfee_2017]).   
+When I refer to platforms, I have in mind something like `Platform 3.0`, Facebook's description of the bundle of configurations, arrangements, services it offers to developers to help them 'connect people with Facebook' [@Facebook_2018].
+'Configured' is a roundabout way of saying that platforms are built in data centres. 
+Data centre platforms are inherently ambiguous phenonema.
+For reasons that run deep in the media, science, commerce, technology and social life they gather, we still don't know exactly what platforms are or do.
+
+STS offers some strong leads on approaching platforms. 
+The work of Alberto Cambrosio and Paul Keating [@Keating_2003] approaches biomedical platforms in terms of knowing. 
+They suggest that sociology should countenance new forms of platform knowledge, such as 'regulatory objectivity':
+
+>Platforms embody a new form of objectivity, a regulatory one, grounded in the procedures of internal quality control, and, especially, external quality assessment [@Keating_2003, 332]	
+
+Although regulation in a conventional sense seems to be severely lacking in many internet platforms, the idea that platforms validate new forms of knowing by assessing and testing qualities is an important lead.
+STS thinking about methods of knowing the social accept and foreground ambiguities.
+Noortje Marres has highlighted and explored a core ambiguity of platforms studied by digital sociology:
+
+>the distinction between the platform as instrument and platform as object is far more unstable than the [usual] formulation of these two options recognizes. We then say that social media platforms present social enquiry with an inherently _ambiguous phenomenon_ [@Marres_2017a,129].
+
+The distinction is unstable because platforms are 'objects' designed, made, instrumented and practiced with knowing in mind.
+It's not as if social researchers could land on the platform and set up field studies to find out what is happening there.
+The platforms are already in the process of knowing, and already platform 'forms of knowledge_ have become the focal point of controversy in digital societies' [@Marres_2017a, 184]. 
+Rather than ignore or decrie the problematic and often divisive platform knowing done  in data centres, Marres suggests that social researchers should engage with the 'critical task of specifying, and re-specifying, our objects of enquiry' (138).
+Dealing with platform knowledge controversies may involve asking what seem to be very limited, detailed methodological questions about 'how we (or they) apply their algorithms to these data' (142).  
+In any case, STS doesn't take any thing as given, even a big thing like Facebook or Google.
+Jean-Christophe Plantin, Carl Lagoze, Christian Sandvig and Paul Edward's pick up Anne Helmond's notion of *platformization* and use it to describe  how infrastructures of communication or information retrieval are  embedded and expanded into daily existence through programmability, interconnection and distribution [@Plantin_2016].    
+They emphasize the need to track 'conflicts or subductions between infrastructures and platforms across various sectors ' [@Plantin_2016, 22].
+In platform 'subductions' or infrastructuralization, in instrument-object ambiguity, and in the frictions of regulatory objectivity,  problems of knowing are often central. 
+
+It would be hard to find an STS academic at a desk or cafe table who isn't relying on platform knowledges, even if its only in the form of ranked search results for images or what appears in their Twitter feed. 
+Platforms are not 'out there.'
+When it comes to platforms, where is 'out there'?
+And where is 'in here'?
+It might be better to say platforms are 'out here' (or 'in there).'
+Pursuing how platform knowing is 'out here' would mean working 'to recover,'   as Lucy Suchman recommends, 'the lived experience and the embodied, situations and interactions of those immediately implicated in particular assemblages, the material practices and cultural imaginations that create and articulate those arrangements, and the political/economic investments that sustain them' [@Suchman_2014, 136].
+Recovery, in multiple senses of that term -- retrieval of something lost by accident or mishap; rehabilition to health after illness or accident; and,  in contrast to the frontier striving of _dis-covery_ , restituting -- of platform knowing may not be easy.[^recovery]
+'Those immediately implicated'  include ourselves out here in  our consumer-audience-researcher-worker-patient-fan-citizen-teacher-player trajectories teachers across platforms. 
+The problem of 'out here' is that platform knowing ferments sciences (statistical modelling for prediction and classification), techniques (especially software development), infrastructures (compute, data centre and network), media (social network and online media), popular culture (images, sound),  and marketisation (buying and selling products).   
+
+[^recovery]: Recovery is just one term. We might also consider 'retrieval' as discussed by Isabelle Stengers in _Another Science is Possible_ [@Stengers_2018]. Katie King's re-enactments also offers an exciting way to work on this [@King_2012].
+
+##  Vectorised  knowing: the case of the GPU
+
+Like an algorithm or a dataset,  the GPU, or Graphics Processing Unit, is a useful thread to trace in and out of the gamut of social network media, search engines, content management systems, video and music streaming, cloud compute, not to mention scientific, engineering, military and transport platforms, often linked to each other.
+A GPU is semiconductor hardware, sometimes taking the form of a separate 'card' (in the computing rather than the greeting sense), an auxiliary chip on a motherboard or even a designated region of a processor package (for instance on the A10 Bionic processor used in recent Apple Corporations iPhones).
+GPUs contain circuitry specialized in the manipulation of certain geometric shapes and the rendering of images with effects of light, shadow, and texture. 
+Over fifteen years, GPUs travel from computer gaming via science to data centre platforms. 
+They are not the topic of any major controversy, but they bind tightly to the speedup of the knowledge economy [@Stengers_2018],  itself possibly  a manifestation of contemporary platform capitalism [@Wajcman_2015; @Srnicek_2016]. 
+They are used to platformise the road vehicles made by Tesla, Mercedes-Benz, Audi, Honda, and BMW [@Su_2018]) as autonomous transportation technologies.   
+Crucially, and this has not been emphasised anyway near enough in current accounts to my knowledge, many of the recent 'breakthroughs' in AI-as-a-platform owe something to GPUs (e.g. the 2012 success of `Alexnet` in image classification [@Krizhevsky_2012]; Google   DeepMind's AlphaGo victory over World Go champion Lee Sedol in 2016 [@Silver_2016]; the many encroachments into intimate spheres of life where voices, sounds, faces, things and places are known by platforms). 
+At the centre of data centre platforms, GPUs accelerate the development and operation of machine learning predictive models, particularly the deep-learning models that for the last six years or so have rejuvenated so much interest in artificial intelligence.
+Major internet platforms have rapidly put GPUs at the centre of data centres, and public cloud platforms (Google Compute, Microsoft Azure, Amazon AWS) all now offer GPUs for hire. 
+Open science platforms such as the European Open Science Cloud [@EGI_2018] or Australia's Nectar research infrastructure prominently offer GPUs to researchers.   
+GPUs are not the only form of hardware specialized for platform-scale  knowing (see Google Corporation's TPU -- Tensor Processor Unit -- 'powers several of our major products' [@Google_2018c] and various other ASICS -- Application Specific Integrated Circuits  -- such as Microsoft Corporation's 'Project Brainwave' [@Microsoft_2018b]; see [@Metz_2018] for an overview).[^asic]
+But their operation is an accessible lead on a variety of related in-house developments.
+
+[^asic]: And GPUs are not only used in data centres. Bitcoin and cryptocurrency 'miners' use them heavily to execute the 'proof-of-work' computations on which blockchains depend  (see reports of worldwide shortages in mid-2017 [@Mott_2017]). In other settings, such as Tesla cars, they run software for so-called 'self-driving' operations. 
+
+It is difficult to trace the proliferation of GPUs in all their varieties and instantiations.
+I assemble several GPUs, including a GPU in my office, GPUs in other offices, in data centres and at conferences.
+I communicate with these GPUs by looking at them, re-enacting in writing code some interactions with them, by paying to use them, by talking to a scientist about his GPUs, by reading scientists and engineers writing about their GPUs, by following conversations between software developers and programmers using GPUs, and by spectating via Youtube a Silicon Valley CEO Jensen Huang enthusing about GPUs.[^method]
+These materials span credit cards, office PCs, code tutorials, cloud platform infrastructures, matrices, deep learning models, ultrasound scanners, scientific publications and pre-prints, Q&A discussion threads, and high-flown well-nigh spectacular valorisation of GPUs at conference events.   
+
+[^method]: Departing from an interview with an epidemiologist, these will include scientific publications that mention GPUs as parts of the apparatus used.
+These publications bibliographic information from the Web of Science, a major database of scientific literature, and from the ArXiv pre-publication repository, particularly important as a cross-validating site for scientists and engineers working across industry and academic research settings. Platform research papers often appear only on ArXiv, never making it to publication in a journal or conference proceedings [@Delfanti_2016; @Gunnarsdottir_2005; @Reyes-Galindo_2016]. In both the published and arXiv articles, I'm interested in knowledge claims associated with GPUs, and in the practices and techniques taking shape around their usage. A second major source of materials derives from software and code. From software and code repositories such as Github.com, it is possible to profile how GPUs are connected, networked, assimilated and otherwise assembled on platforms. The libraries and packages developed to allow platform deployments (libraries such as CUDA, but also higher level libraries for more specific purposes such as image recognition, speech and text processing such `TensorFlow` or `Torch`), and the many hybridizations of these libraries with existing bodies of code (`PyTorch`, `cloudml` in R) will be of interest here. Question-and-answer sites such as StackOverflow.com are also key resources since they often provide indications of the relative operational value of different code elements. A final set of materials stem from GPU manufacturers and cloud computing service providers such as Amazon, Google, IBM and Microsoft. They buying and selling of compute capacity is central in platform economies. But this buying and selling practice requires marketisation of 'compute' [@Mackenzie_2019] which itself is calculative. The calculative marketisation of compute capacity is just as integral to the data-centred platform  as it was to the development of the GPU as a way of intensifying the visual experience of game play. 
+
+I aim to  plot the trajectory that seems to accelerate irresistibly from popular culture (gaming) of the 1990s via scientific computing in the 2000s into contemporary data centres post-2010 as a vector, a continuous set of felt transitions, of platform knowing. 
+If we succeed in following the transitions that terminate in platform knowing, a statement such as a GPU product announcement might be less problematically accelerant. 
+Here, for instance, is NVidia,  the leading manufacturer of data centre GPUs,  announcing a data centre GPU:
+
+>NVIDIA® Tesla® V100 is the most advanced data center GPU ever built to accelerate AI, HPC, and graphics. It’s powered by NVIDIA Volta architecture, comes in 16 and 32GB configurations, and offers the performance of up to 100 CPUs in a single GPU. Data scientists, researchers, and engineers can now spend less time optimizing memory usage and more time designing the next AI breakthrough [@Nvidia_2016].
+
+In this announcement, the rendering  of words or images  on screen is not  the primary concern, although still mentioned ('graphics').
+In data centres, the  Tesla V100 GPU  is meant to bring 'insights' from 'ever-growing lakes of data' [@Nvidia_2016] within the reach of researchers.      
+What carries GPUs into the centre of the data centres is an acceleration vector, a trajectory that aims to shrink the time between gathering data and knowing ('insight' or 'understanding').  
+In the data centres, GPUs are aligned to a specific computational task associated with  machine learning and neural net modelling in its current incarnation as 'deep learning' [@Goodfellow_2016]. 
+More specifically,  GPUs mainly work on collections of images derived from photographs, video footage, and various imaging platforms used in medicine and the sciences.
+Although they process text and sound using similar techniques, images (photographs, video, instrument images) have primacy.
+
+Is the acceleration that GPUs bring to image collections knowing?
+'Wonderful are the new cuts and the short-circuits which the thought-paths make' writes James [@James_1996,64] as he describes how concepts or ideas substitute 'inconceivably rapid transitions' for the 'tardy consecutions' and continuous sensible transitions of bodies and things in their experiencing. 
+The GPU opens a continuous path, although intricate and convoluted, between ideas that data scientists, engineers or developers bring into association with some problem (who is using the the platform? who is not using the platform? who will buy? who is a threat?)  and images gathered by cameras and other devices such as satellites, medical scanners or radar.   
+On one side, come ideas or concepts that individuate experience of things, situations, and people by dividing, classifying, segmenting, ranking and ordering them. 
+On the other side, lie sensings of the world in images, sounds, words, documents, measurements, readings and records in great variety and quantity. 
+Like a thought-path,  GPUs substitutes 'knowing' for slow sensible transitions. 
+Unlike a thought-path, GPUs substitutes  
+
+Consider the challenge of viewing the fifteen million images of ImageNet, one of the most heavily used datasets in deep learning [@ImageNet_2018; @ILSVRC_2014].
+It is hard to view so many images, detached from almost all context, and having no obvious natural ordering. 
+It is easier, perhaps only sensible, to traverse ImageNet using ideas.
+Searching ImageNet for 'door' shows that walls have openings in them. 
+'Door' forms an important element of structures such as building and room, and general ideas such as construction or artifact.
+The idea of a door helps define important relations such as in and out, as in 'indoors' and 'outdoors.'    
+We can traverse the ImageNet collection only because the images in ImageNet are all labelled by ideas such as 'door', 'room', 'building,' and 'structure'.
+People have labelled the images, locating visual experience of a fungus, chicken runs, altars, nests, craters, pot plants, gymnastics, kitchens, baggage claim areas, crosses, spiders, and neutron stars within one of the thirty thousand or so categories stacked in the noun hierarchy drawn from Wordnet [@Wordnet_2018].             
+Viewed from  James' standpoint, ImageNet is a network of paths between ideas and sensible experience guided by nominalizations, or naming of things.[^verb]
+
+[^verb]: It is not possible to navigate ImageNet at the present time in terms of actions (e.g. running or talking) or states (happy, anxious, melting). 
+
+```
+http://image-net.org/search?q=talking
+Your query talking is not available yet. ImageNet is still under construction.
+```
+
+As used in deep learning, GPUs further accelerate the accelerative function of nominalization. 
+They expedite the short-circuit path running through people categorizing sensible experience.    
+Training a model on GPUs to label images using ImageNet, as Alex Krizhevsky did in 2012 [@Krizhevsky_2012], means fitting a model to the sensible experience in ways that can be validated, corroborated or verified.     
+This does not mean that GPUs and their ilk are where platform knowing takes place.
+The situation is more complicated than that. 
+In James' account of knowing as continuous transitions between one experience and another, feelings of transition are vital: 
+
+>In this continuing and corroborating, taken in no transcendental sense, but denoting definitely felt transitions, lies all that knowing of a percept by an idea can possibly contain or signify.  Wherever such transitions are felt, the first experience knows the last one [@James_1996, 56]. 
+
+One experience knows another by feeling continuous, corroborating transitions.
+As James takes pains to point out, most corroborating remains 'virtual' or nascent.   
+Nine times out of ten, we  content ourselves with a felt tendency, a tendency suggesting that if we did follow it fully, we'd reach a sensible percept. 
+(This allows, us for instance, to normally trust certain images without backtracking to the event of their making.) 
+The feeling of corroboration retroacts back through the chain of transitions to generate the experience of knowing, of verification or fit between the idea and experience.
+
+When a GPU accelerates transitions between commercially, scientifically, aesthetically or political significant ideas (of person, of thing, of disease, etc.) and images that stand in for sensible perceptions, continous transitions occur.  
+We could track them through the code of the software libraries  and the models that run on the GPUs, libraries such as `Torch` [@Pytorch_2017], `TensorFlow` [@Google_2015] or `CUDA` [@Nvidia_2018], and deep learning image recognition models such as `alexnet` [@Krizhevsky_2012] or `resnet` [@He_2016].
+In the models, we would find pixel-by-pixel continuities spun between the images and the idea-classification statements such as 'here is a dog. ' 
+It would be difficult but not impossible to follow the trajectories and the many to-and-fro movements between images and idea, between data and knowledge. 
+
+But if knowing is to take on the full and deep sense as a platformised and implicated vector-trajectory,  then locating felt transitions matters.
+Felt transitions are the sites of implication of people in platforms. 
+They are the fracture zones where subduction, or pushing under, happens, where what was felt becomes unfelt.
+I turn to some instances of a GPU as places where felt transitions take place. 
+
+##  GPU instances as  felt transitions
+
+![Figure 1: An Nvidia GPU in an office PC](figure/my_gpu_scaled.jpg)
+![Figure 2: An Nvidia GPU out of an office PC](figure/asus_gpu_3.jpg)
+
+A GPU card labelled 'Asus Strix' appears in Figure 1.
+('Strix' is taken from the Ancient Greek for owl.)
+It is the one in my office computer. 
+I open a door on the PC case. 
+It has an easy-release clip.
+I see the CPU almost completely covered by the finned block of aluminium heat sink and fan screwed onto it.
+The case is mostly empty, but the memory card, the disk drive, and power supply take up some space. 
+Many wires run around, despite the growth of wirelessness.
+Beside all this, a GPU card plugged in a PCIe slot lies in a different plane, with its own much larger heatsink, cooling pipes and two cooling fans. 
+The 'Asus Strix' takes up two PCIe slots on the motherboard.
+The bulk of it is a complex array of fans, aluminium fins and copper piping. 
+Lacan's _Ecrit_ or David Lyon's _Surveillance and Society_ on the left of the PC might lead a deep learning image classifier to associate the GPU at the bottom with the category of 'academic researcher.' 
+What does a GPU card in a PC case have to do with data centre-scale platforms and their accelerated knowing? 
+It's a mundane instance. 
+Mundane things are not always good to think with.
+In comparison with neutrinos, neutrophils and neurones because, as Bruno Latour observes, their place has already been settled by habit [@Latour_2007a, TBA_page]. 
+But instances, especially proximate, tangible, slightly obscure ones, are interesting. 
+Approached carefully, a GPU in a PC offers a case study of immediate implication in the social-technical graph of platform knowing [@Latour_1992a]. 
+This particular dusty, already dated, mid-tier gaming GPU, in its  metal, plastic and silicon tangibility, is one in a continuous chain of instances linking people like me to platforms like Google Cloud TPU or Facebook 'Big Sur' [@Facebook_2016].     
+It is not only an example or illustration supporting an argument about knowing, but a site of felt transitions, a place where transitions are corroborated and continued. 
+
+A chain of transition links the Asus Strix NVidia 960GTX GPU I bought in late 2016 to platform knowing.  
+Along this chain, some transitions are felt briefly, only to be subsumed in new short-cuts that quickly settle into the habits of platform knowing. 
+The question is how to brake  something straining to accelerate.
+Take for instance, the pixels in images generated for realtime 3D games by GPUs in the 1990s.
+GPUs architectures expanded to address more and more individual pixels.
+Rather than simply rendering polygons (triangles) to construct buildings, figures and things on screen, they began to add effects of light, shadow and texture (so-called pixel shaders and texture maps) to the components of those scenes.
+But in adding detail to images,  they added data pipelines, GPU-specific memory, dedicated accelerator circuitry for specific operations, becaming a sub-system or platform within the broader computing environment of the PC.
+They exposed their own Application Programming Interfaces or APIs such as DirectX, OpenGL and later, CUDA, allowing programmers to access their varied functions without detailed knowledge of how the hardware worked. 
+Their clock speeds, number of processors, bandwidth and memory increased year on year.
+My GeForce GTX960, for instance, gathers around 1280 compute cores, 3Gb memory, and 120Gb/s bandwidth, as well as a range of special purpose sub-systems (video-encoding, global illumination acceleration, etc.) to render 44 billion pixels to screen each second. 
+The growing mass could be felt by gamers  as they played games on higher resolution screens, immersing themselves in more detailed architectures and landscapes, awash with play of light and shadow,  animating figures dressed in fabrics and equipment rendered in greater detail.         
+(It could also be felt as heat and fan noise.)
+It could also be felt by programmers, whose sense of the GPU as a discrete, addressable platform within the PC came through the functions and commands they invoked as they configured and programmed games and other applications. 
+
+An elementary programmatic sense of the GPU as a platform might begin with these lines typed in a command line terminal:
+
+```
+lspci
+```
+
+The  command lists all the devices connected to the 'peripheral component interconnect' and includes the GPU as one of many devices (network, USB, audio, video, memory,etc.)  in the PC.
+
+```
+nvidia-smi
+```
+The second line also produces text output, a report on the GPU's architecture. 
+The output gives a more expansive sense of the GPU as a platform containing around 2048 compute cores.
+The experience of a GPU as  2048 compute cores differs from greatly that of a gamer playing headlong through a realtime action game, taking for granted the flow of detailed scenes she moves through.
+The GPU's architecture, peripheral to the CPU (Central Processing Unit), seems massive, as if a cottage has been extended out the back by an office tower.   
+
+Let us shift to another GPU instance. Still at my office PC, I type another much longer command into a terminal window:
+
+```
+gcloud compute instances create gpu-instance-1 \
+--machine-type n1-standard-2 --zone us-east1-d \
+--accelerator type=nvidia-tesla-k80,count=1 \
+--image-family ubuntu-1604-lts --image-project ubuntu-os-cloud 
+
+```
+
+These lines configure a very different 'gpu-instance,' no longer in my office but in a North Virginia data centre operated by Google in the east of the US ('us-east1'). 
+The location the GPU is less mundane since it is now part of the Google Computer public cloud platform.
+
+Somewhere between the two instances, the GPU has been figured as a remotely accessible object, part of the ensemble of devices and systems known as the cloud.
+Having this GPU is much more platform-implicated.
+It is one instance located in one of a dozen or more data centres around the world.
+I could just have well started the virtual machine in Amsterdam or Singapore, albeit at slightly greater cost. 
+The second instance runs in my name and on my credit card account until I 'terminate' and delete it.
+The virtual machine configured in the script (an Ubuntu 16.04 operating system running on a 'n1-standard' dual CPU) would then spin down or move on to some other scheduled task.  
+
+Under what circumstances does the transition from a GTX960 in my office to 'gpu-instance-1' in North Virginia become so seamless? 
+What continuities and corroborating hold between the two instances?
+While `gpu-instance-1` is still running, I login into the virtual machine and type the same commands I did for my office PC:
+
+```
+lspci
+nvidia-smi
+```
+
+![GPU-instance-2](figure/gpu-instance-1.png)
+
+The GPU instance is less mundane since it is now a Tesla K80, the "world's most popular GPU" [@Nvidia_2018a], a GPU designed to lower energy costs for data centres. 
+But the  commands I direct to the 960GTX and K80 are identical and the output of the commands is quite similar, suggesting a continuity has been established.
+The alignments and associations I have to my mundane office PC's GPU are almost indiscernible from those I have to the Google Compute instance.  
+In order for an experience of infrastructurally scaled sameness to appear in my terminal emulator (the same commands work in both places), geographies, software differences, and hardware specificities have been overcome.  
+
+## Implicated scientists: from Maxwell to Volta
+
+A lead come from scientists working with GPUs.
+The path that takes the GPU from gaming platform to platform knowing passes through scientists and sciences.
+I turn away from my GPU and walk to another part of campus to knock on the door of an epidemiologist who has been using GPUs for epidemic modelling since 2008.
+In my interviewee's office, the packaging for an  NVidia Tesla C2075 professional GPU (circa 2011) lies above the shelf of books on lineear algebra, _Bayesian Data Analysis (3rd edition)_ and _Numerical Recipes in C_. 
+I ask him about the Nvidia GPU carton and he dismisses: 'oh, that's an old one, out of date.'
+His current  Tesla GPUs were furnished as a grant-in-kind by NVidia.
+They are 'co-located' in a specially bought server somewhere in the Information System Services facilities on campus.
+( I don't manage to visit the ISS facility. If I did, would it look much different to what I see in my office PC?)
+From my PC's GPU to the GPUs co-located -- the act of placing multiple entities in a single location -- in ISS, the path runs through scientists such as my interviewee.
+
+The path to the GPU,  followed by sciences ranging across astrophysics, finance, chemistry, molecular biology, epidemiology and of course computer science, might seem short, as easy to follow as the path from my office in sociology to the medical school. 
+When I ask my interviewee 'what is a GPU?', he replies with a brief account of GPU-based calculation: 'it carries out calculation specialized on a matrix, such as a screen. GPUs are designed to make matrix calculations very fast.'
+Two stories of acceleration follow, one concerning chips and one concerning networks.
+GPUs address the problem, he went on to explain, of Moore's Law running into  the physical limits of miniaturisation.[^chips]  
+GPUs continue to accelerate when CPUs can't.
+Their growing number of parallel cores overtakes the increasingly difficult miniaturisation of transistors on which Moore's Law has relied until relatively recently (2010 or so).   
+GPUs also ease frictions in large-scale scientific computation using networks. 
+Networked computing clusters were developed and widely used post-2000 to accelerate scientific computation.
+(Prior to 'the cloud,' scientists often referred to them as 'the grid.')
+But clusters were hard to set up and program. 
+And they bogged down shunting data along network cables between machines. 
+The GPU architecture of many cores keeps the paths taken by data much shorter.
+
+NVidia itself frequently re-counts the end-of-Moore's-Law narrative and the triumph of parallelisation in its announcements, product releases and blogs.
+Several years prior to my interview, my epidemiologist  had already been interviewed by NVidia for its news blog [@Nemire_2015]. 
+A collection of interviewers with scientists during the years 2013-2017  reiterated the point: GPUs accelerate the science of earthquakes, the 'luminosity of beam dynamics', complex fluid flows in rock, solar storms, 'large scale object detection' and 'spectral graph partitioning.' 
+But the acceleration narrative, even as it is repeated by my interviewee in comparing his current GPUs with the older ones, moves too quickly. 
+Even with these two modifications -- failure of Moore's Law and frictions in the grid -- the accelerationist narrative moves slightly too quickly. 
+To grasp the vectors of knowing in the contemporary platformisation of the GPU, we still need to trace the implication of those immediate to the GPU over time. 
+Between my ancient Greek owl with its Maxwell architecture, and the more recent data centre Tesla or Volta GPUs, the differences are not only scalar, as if the sheer quantity of transistors  make a short cut from gaming to knowing, as if accelerating GPUs are like polished wooden balls rolling down Galileo's inclined plane, covering the same distance in ever shorter times. 
+
+[^chips]: The components cannot be smaller than the nanometre wavelengths of the wave functions defining the movement and position of electrical charges in the circuits.
+
+## Hacking the GPU in retrospect
+
+All knowledge accelerates. 
+Acceleration practices multiply in the sciences. 
+Notations, devices, concepts, standards, collaborations,  disciplines, and all the elements of scientific knowledge have accelerative tendencies.
+But knowing also needs a validating after-effect, the retroactive projection  rippling back through the felt transitions of a trajectory, confirming or corroborating the sense that one experience -- an idea, a concept, a calculation -- leads us to another -- the sensible experience of, say, a door. 
+
+In 2001, physicists such as computer scientists such as Daniel Weiskopf and co-authors see the pixel shading capacities of of GPUs as ways of rendering and interacting en masse with, appropriately, vector fields as abstract models of fluid flow [@Weiskopf_2001]. 
+Two years later, interactive visualization of dense fields of vectors has given way to numerical simulations using linear algebra and matrices, decoupled from graphic and screens [@Krüger_2003]. 
+'The general idea,' write Jens Krűger and Rűdiger Westermann,  'is to store matrices as texture maps and to exploit pixel shader programs to implement arithmetic operations' [@Krüger_2003, 909]. 
+Hardware features of GPUs designed to paint textures on images are re-purposed as matrix data structures. 
+By 2005, GPUs were starting to observe images, again not to show them but to recognise things such as  words in them. 
+Researchers at Microsoft reported using GPUs to implement neural networks for optical character recognition [@Steinkraus_2005; @Chellapilla_2006]. 
+In these years, computer scientists such as Jeff Bolz and Ian Buck began to re-conceptualise GPU architecture as a parallel 'stream processor' [@Bolz_2003].
+Alongside ongoing developments in GPU software APIs (OpenGL and Microsoft's DirectX), this was an platformising development.
+It rendered the GPU as a general purpose parallel computer, a development that will culminate in late 2006 with the release of a software framework for NVida GPUs,  CUDA, which 'provides a complete development environment that gives developers the tools they need to solve new problems in computation-intensive applications such as product design, data analysis, technical computing, and game physics' [@Buck_2007]. 
+After 2007, multiple paths of parallelisation run through the scientific literature. 
+In 2009, speaking at the _29th International Conference on Machine Learning_ in Montreal, researchers from Stanford (Rajat Raina,  Anand Madhavan, and Andrew Ng) could describe GPU implementations  of unsupervised learning techniques ('deep belief network' and 'sparse coding') to model  'a large dataset of natural images' [@Raina_2009, 877]. 
+Their paper is only one in a rapid, parallel expansion of scientific and engineering research detour through GPUs. 
+
+![Growth of GPUs in sciences (Web of Science)](figure/gpu-datacentre-cuda.svg)
+![CUDA, GPU and data centres on ArXiv](figure/arxiv_facet.svg)
+
+The transition from CPU to GPU-based computation in the sciences soon became massively parallel.
+In the sciences, GPUs spread across a range of disciplines initially clustered around the mathematical sciences. 
+Mentions of GPUs in scientific publications increase sharply after 2007, climbing to a peak in 2015, and declining in the last few years.
+The growth in parallel across disciplines suggests that GPUs address a generalised problem of acceleration.  
+Although the table and figure cannot plot the multiplying GPUs, they suggest that my interviewee's GPUs, as they accelerated Bayesian models of epidemics, were instances of a rippling contagion of matrix multiplication.   
+Nvidia's blog profiles of GPU-based research projects caught the coat tails of a much wider proliferation. 
+
+## A matrix of implications 
+
+Scientists implicate themselves with  GPUs around the figure of the matrix. 
+In response to this implication, GPUs became something designed, as my interview put it, to calculate matrices fast. 
+They weren't designed to calculate matrices fast from the outset, but have become fast at matrix calculations in the wake of the many scientists who saw  GPUs as matrix multipliers.
+What is a matrix?
+
+/*![Matrix](figure/jewell.png)*/
+
+My interviewee was referring to a mathematical structure that can be written as a table of numbers or variables.
+Elements of a matrix can be addressed by row and column numbers. 
+Vectors can be thought of as a matrix with one column. 
+A series of short cuts associated with matrices, and formalized in linear algebra, allow matrices to expand and contract, to span and transform, data in many different directions. 
+The very expression shown above presents some of these shortcuts. 
+It doesn't write out all the elements, but substitutes variables such as `n` and `m` for varying magnitudes and dots for values that could be written out.
+More importantly the equation of **X** to the matrix dramatically collapses the grid of values down to a single variable, that can itself be multiplied and added in chains of operations. 
+The notation and operations of linear algebra implicitly parallelise. 
+The addressing elements of the matrix appear in the subscripts, and these can be mapped from the page to locations in semiconductor memory. 
+Matrices therefore transpose mathematical expression of vectors directly onto practices of computation.
+Along with experimental apparatus such as inclined planes, matrices could be -- and have been --  seen as one of the great modern accelerators of nature-culture bifurcation. 
+
+At this point, things could easily slide too quickly again, for matrices, just as much as devices like GPUs and platforms spread across data centres, are knowledge accelerants. 
+But following James' injunction to follow the felt transitions, the corroboration and virtualities of knowing, let us return to the command line console to see how matrices are actually rendered computable on GPUs.
+We have already seen a script to initialize a GPU instance in the cloud.
+But that one-line script, as shown in the previous code excerpt, is not complete.
+It needs a second line:
+
+```
+
+--metadata startup-script=
+    '#!/bin/bash
+	echo "Checking for CUDA and installing."
+	if ! dpkg-query -W cuda-9-0; then
+        curl -O http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
+        dpkg -i ./cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
+        apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
+        apt-get update
+        apt-get install cuda-9-0 -y
+    fi'
+```
+
+The comment 'Checking for CUDA and installing' just about sums it up. 
+The GPU becomes a matrix calculator today (and for the last ten years or so) in the wake of some software installation (check if CUDA is installed, if not, download it, install it, check for updates, install updates).
+
+A  sharp upturn in GPU-related publications and pre-publication begins soon after the release of the first versions of CUDA in 2007 (and can be seen in both the plots of journal publications and arXiv pre-prints around that time).
+My interviewee described his own GPU learning not in terms of parallel streaming processors or pixel shaders but in terms of CUDA: 'I went straight to the CUDA C programming guide' (see [@Nvidia_2018]). 
+Rather than rendering matrices calculable in either abstract mathematical or concrete hardware-specific senses, CUDA  constructs an experience of continuity between existing programming practices and GPU-programming practices.
+As discussions in computer science journals such as ACM Queue noted at the time, CUDA is a  'minimal extension of the C and C++ programming languages' [@Nickolls_2008, 43].  
+What CUDA supplies -- a 'platform and programming model' that only slightly departs from standard programming practices -- was perhaps just as important as the GPU hardware. 
+
+
+```
+#include <iostream>
+#include <math.h>
+
+// function to add the elements of two arrays
+void add(int n, float *x, float *y)
+{
+  for (int i = 0; i < n; i++)
+      y[i] = x[i] + y[i];
+}
+
+int main(void)
+{
+  int N = 1<<20; // 1M elements
+
+  float *x = new float[N];
+  float *y = new float[N];
+
+  // initialize x and y arrays on the host
+  for (int i = 0; i < N; i++) {
+    x[i] = 1.0f;
+    y[i] = 2.0f;
+  }
+
+  // Run kernel on 1M elements on the CPU
+  add(N, x, y);
+
+  // Check for errors (all values should be 3.0f)
+  float maxError = 0.0f;
+  for (int i = 0; i < N; i++)
+    maxError = fmax(maxError, fabs(y[i]-3.0f));
+  std::cout << "Max error: " << maxError << std::endl;
+
+  // Free memory
+  delete [] x;
+  delete [] y;
+
+  return 0;
+}
+```
+
+```
+#include <iostream>
+#include <math.h>
+
+// Kernel function to add the elements of two arrays
+__global__
+void add(int n, float *x, float *y)
+{
+  int index = blockIdx.x * blockDim.x + threadIdx.x;
+  int stride = blockDim.x * gridDim.x;
+  for (int i = index; i < n; i += stride)
+    y[i] = x[i] + y[i];
+}
+
+int main(void)
+{
+  int N = 1<<20;
+  float *x, *y;
+
+  // Allocate Unified Memory – accessible from CPU or GPU
+  cudaMallocManaged(&x, N*sizeof(float));
+  cudaMallocManaged(&y, N*sizeof(float));
+
+  // initialize x and y arrays on the host
+  for (int i = 0; i < N; i++) {
+    x[i] = 1.0f;
+    y[i] = 2.0f;
+  }
+
+  // Run kernel on 1M elements on the GPU
+  int blockSize = 256;
+  int numBlocks = (N + blockSize - 1) / blockSize;
+  add<<<numBlocks, blockSize>>>(N, x, y);
+
+  // Wait for GPU to finish before accessing on host
+  cudaDeviceSynchronize();
+
+  // Check for errors (all values should be 3.0f)
+  float maxError = 0.0f;
+  for (int i = 0; i < N; i++)
+    maxError = fmax(maxError, fabs(y[i]-3.0f));
+  std::cout << "Max error: " << maxError << std::endl;
+
+  // Free memory
+  cudaFree(x);
+  cudaFree(y);
+  return 0;
+}
+```
+
+In the first of the two C code excerpts shown above, two arrays or vectors `x` and  `y` of floating point numbers are added.   
+This is an elementary matrix operation.
+Adding two matrices creates a new matrix.
+The code directs the CPU to allocate memory for two million element arrays (lines 17-18), sets initial values to 1.0 and 2.0 (lines 21-24),  and then runs the `add` function (lines 5-9) by stepping through the elements of the arrays adding them. 
+The second C code excerpt does something very similar, but directs the CUDA compiler to distribute the vectors and the additions across an architectural abstraction of the cores of the GPU.
+New parameters and abstractions operate in the code.
+The CUDA platform distributes the data in a hierarchy of thread blocks and grids, with local processes concurrently operating in thread blocks and independent processes grouped as thread blocks in a grid [@Nvidia_2018,4]. 
+In the code excerpt, the thread blocks have 256 threads (line 32) and the number of blocks in the grid is calculated (~3000 in this case). 
+The `x` and `y` arrays are spread across the threads of the GPU, and elements of the arrays are added in parallel.
+Running the CUDA code on my 960GTX and profiling the run times as I changed the size of the thread blocks and the number of thread blocks, compute times for a million elements dropped from a somewhat perceptible 209.42 milliseconds to 151 microseconds.   
+As the matrix spreads across the cores of the GPU, calculation accelerate. 
+The code covers many transitions and some discontinuities in device and platform configuration.   
+GPU hardware with different features appear uniform from the standpoint of CUDA, but are felt by programmers when they run code.
+The CUDA platform presents many constructs and functions, always with the idea of minimising changes in programming languages and constructs.
+More than the hardware devices, it accommodates growth and change in platform knowing by adding libraries (groups of associated functions) relating to emerging applications (for instance,  cuDNN, a 'GPU-accelerate library of primitives for deep neural networks' [@Nvidia_2018]).
+It often re-implements existing software libraries (for cuBLAS, a CUDA version of the widely-used BLAS or Basic Linear Algebra Subprograms library). 
+In the process, many intricacies of distributing calculations across different processors and coordinating the results virtually disappear, to be replaced by a single coordinating operation, `CudaDeviceSynchronize.`  
+
+## Developers platformise the data centres
+
+CUDA  renders acceleration smooth by subducting the GPU parallelism that we see in the scientist's articles, in the NVidia blogs, in the equipping of data centres with GPUs and in the burst of platform knowing. 
+But scientists do not make and run platforms such as Instagram, Twitter, Google or Amazon.  
+Platforms, or least the most well-known platforms, are not populated by scientists.
+They may not even use them very much in their work.
+When asked why he didn't use GPUs on cloud compute platforms, my interviewee responded: "I haven't found a business model that makes it worthwhile."
+Developers and software engineers make platforms. 
+And platforms are made, in part, for developers, which is why the CUDA documentation can be found in NVidia's 'Developer Zone' not a 'Scientist Zone', and why Facebook has a high-level domain developers.facebook.com. 
+Developers' are not scientists, even if their work owes much to scientists.
+They construct the continuities that allow platform knowing to move between a GPU in an office PC and GPUs in data centres.
+
+![cuda on StackOverflow.com](figure/cuda-StackOverflow-time.svg)
+![cuda on StackOverflow.com](figure/StackOverflow-tags-coded.svg)
+
+On the programming Q&A site, StackOverflow.com, posted questions are tagged by users.
+Unlike the keywords for scientific publications found on Thomson Scientific's Web of Science or the arXiv.org pre-print repository, the tags are single words.
+A plot of the tags associated with the tag `cuda` since 2008 presents several tendencies. 
+The figure shows the one hundred most frequent tags.[^tags] 
+The tags `cuda` and `gpu` have been removed.
+The remaining tags have been coded according to  categories important in developer's work (platforms, languages, programming work, matrices, parallelism, and one other category, images).  
+Prominent concern relate to the work of programming (compilers, development tools, errors, profiling), specific programming languages (C, C++, Python, Java, Matlab, etc.) and underlying platforms (linux, Windows, Tesla GPUs). 
+Questions and discussion around matrices, parallelisation and optimisation take many forms, sometimes relating to specific software libraries such as `cublas` or `numpy`.
+
+[^tags]: Around 5000 tags appear alongside the `cuda` tag, but almost half of these occur only once.  
+
+![Images associated with cuda on StackOverflow.com](figure/StackOverflow-tags-image-category.svg)
+
+The final category  -- images -- stands out here.
+Tags such as `image`, `image processing`, `torch` and thirty similar tags account for around 10% of the total number of tags used in the `cuda`-tagged posts.
+Although they are not the most common tags in use, they are significant.
+Some  tags relate to computer graphics (for instance, `directx` posts probably relate to game programming, and `raytracing` is a technique for creating photo-realistic images,  etc.),  
+Leaving these tags aside, the remainder -- `neural network`, `machine learning`, `keras`, `theano`, `tensorflow`, `caffe`, `opencv` -- bear on the problem of knowing images.
+These tags mention models, libraries and techniques that process images in order to recognise faces, places and things in images (as in the `opencv` or open computer vision library) or to classify things visible in images.
+
+In scientific publications, we expect discussion of images in relation to experiments, measurements and observation.
+Unlike the scientists, the developer's discussion in the tagged posts relation to the problems of implementing machine learning models on GPUs on particular platforms using libraries. 
+The libraries  were developed in some cases by scientists (`caffe` and `theano`),   in others by platforms such as Google (`tensorflow`), Facebook (`torch`), and sometimes by a combination of the two (`keras`). 
+Rather than evaluating referential claims based on models processing large image collections, the developer posts attend closely to configuration of the layers of software libraries, and the loading of specific tested models (`lenet`, `resnet`, `alexnet`, etc.).      
+The number of postings related to CUDA drops after 2013 (see Figure TBA), suggesting that frictions and difficulties in bringing GPUs into use in machine learning have in the last few years have reduced. 
+The CUDA platform has been infrastructuralised. 
+Writing in 2018, a few lines of code instantiates a GPU ready to run a deep learning model in the cloud [@Camins_2018]. 
+The trajectory between GPU instances, from the office PC through the co-located GPUs to the Google Compute GPUs, is made continuous by the work of collectives of developers modifying, aligning, testing and varying platform configurations.    
+
+## Infrastructuralising GPUs: 'the more you buy, the more you save'
+
+As scientists, developers and perhaps social researchers implicate themselves with GPUs, they also contribute way points and connective elements to another trajectory, a retroactive validation of platform knowing. 
+We know that cloud data centres operated by technology companies such as IBM, Microsoft, Google, Amazon and others not only anchor social media or business software platforms.
+They platformise domains of social life.
+
+What is platformisation? 
+Anne Helmond describes platformisation as a double logic of decentralization or distribution of platform features (through APIs, apps, and other layers of software and hardware) and  centralization of data collection [@Helmond_2015, 5].
+Helmond defines platformization as an 'economic model' (8), which it is, but it only becomes economic when the data is transformed into knowledge forms with some referential purchase, some terminus in the world, in James' terms. 
+
+At the edge of some platforms, platformization continues. 
+Having platformized their own domains, some large platforms turn their own platforms into infrastructures for other platformizing processes.     
+More of Amazon's income, for instance, comes from selling the compute capacity and data storage in its data centres to other platforms (Airbnb, _The Guardian_, Netflix) than from shipping goods [@Evans_2018].
+When Google Corporation implements a deep learning model to control the cooling systems in their data centres,  they (re-)platformise parts of their own infrastructure [@Evans_2016].  
+When Facebook announces that it is open-sourcing specifications for `Big Sur`, its GPU computing server rack, they again contribute to platformisation [@Facebook_2016].
+When I instantiate `gpu-instance-2` on Google Cloud Platform, and view the running costs in the cloud.google.com 'Console,' I'm implicated, perhaps trivially in terms of costs on my credit card, in the ongoing platformisation of knowing. 
+
+In their account of platformization, Plantin and co-authors call these shifts between platforms and infrastructures 'subductions.'[^subduction]
+Although the term suggests seismic or underground movement, subductions occur in plain sight. 
+Again, GPUs render these movements visible.
+For instance, since 2009, Graphic Technology Computing (GTC) conferences have been held in North America, East Asia and Europe. 
+Many people attend these events.
+The speakers and audiences include all the people we have encountered in following the trajectory of GPUs: engineers, scientists, gamers, developers and, above all, one person, NVidia's CEO,  Jensen Huang, who speaks at nearly at GTC conferences.[^huang]
+
+[^subduction]: On this term, borrowed from the geology of continental plates, see [@Mackenzie_2012b]. 
+
+[^huang]: I use transcripts of Huang's keynotes from the video-sharing platform, Youtube. The transcripts were generated by Google's Automatic Speech Recognition, relying on 'deep learning neural networks' [@Google_2018b]. My interview was transcribe using the Google Compute Platform Speech Recognition API at a cost of around \$5USD.
+
+In  constantly varying stream of statements between 2009 and 2018, Huang's keynote addresses to GTC audiences wrangles GPUS into association with gamers, designers, scientists, software engineers, developers and data centre operators.
+The structure of Huang's speeches has remained remarkably stable.
+He introduces a new GPU chip, architecture or server product, and runs a demonstration of the product working on a scientific, engineering, or commercial challenge, exhorting the audience to marvel at the ingenuity or importance of the demonstrations and to buy more GPUs. 
+The statements, the elements of the GPU discursive formation, refer to cost, energy usage, time, research and, pervasively,  the economic value of knowledge.
+
+Huang does not address scientists as such, even if he often describes and draws on their work with GPUs.
+He speaks to developers in their language.
+For instance, at GTC2017, much of the hour-long talk dwells on how deep learning done on GPUs can save money for  data centres ('that's right; the more you buy, the more you save') [@Nvidia_2017].[^buy]
+Huang's talk of cost saving assumes, without much justification, that the audience in the auditorium and on Youtube will be sensitive to the problems of how to manage data centre-scale image collections and will want to use deep learning to do that. 
+Huang invokes scientific knowledges but highlights the problems of regulating and accelerating knowledge.
+
+[^buy]: Huang's audience of developers and scientists might buy or hire GPUs, especially when they use NVidia's data centre products. GPU servers for data centres typically have eight or sixteen GPUs. But everywhere else, NVidia limits sales of GPUs to two per customer [@Lim_2017]. This is to deal with the problem of cryptocurrency miners snatching all available GPUs to mine Bitcoin and the like. 
+
+At GTC2018, for instance, he presents `Clara Clara` as a platformisation of scattered biomedical platforms, in this case ultrasound scanners:
+
+> There are three, four, or five million medical instruments that are installed all over hospitals all over the world. ... Can we take advantage of the same basic techniques ... where you connect devices connected to data centres, and those data centers essentially have [GPU] supercomputers that are virtualized?' [@Nvidia_2018e]. 
+
+Huang proposes `Clara Clara` as an upgrade of all existing ultrasound imaging scanners.
+
+>Project `Clara Clara` ... is a medical imaging supercomputer. But what it is is a data centre-virtualized remoted multi-user medical computational medical instrument. ... It's possible for us to actually virtually upgrade every single actual instrument [@Nvidia_2018e]. 
+
+`Clara Clara`'s introduction, as is the convention in technology demonstration, takes the form of a before-and-after comparison. 
+The comparison register some kind of acceleration on, ironically given the decoupling of GPUs from displays, on a large screen.  
+The idea, as Huang does on to show, is use the internet connections found on many ultrasound machines to feed images into a data centre.
+Then,  NVidia's latest GPU server (a DXG-2 [@Nvidia_2018d]) running trained deep learning models,  will sharpen and segment -- locate and label significant  image elements simply not visible or discernable even to experts sat by the scanners. 
+
+At this point, Huang shows 3-D coloured animation of a beating heat, with the left ventricle segmented as a distinct, coloured mass, and accelerates his own talk:
+
+> I'm so excited. We can that we see basically the chamber here and we analyze most of the motion of the left ventricle by using deep learning. ... It's a fully convolutional neural network in 3D called `vnet` [@Nvidia_2018e].
+
+Finally, done with `Clara` (now a NVidia product [@Nvidia_2018c]), Huang turns away from the biomedical platform to insist on the acceleration of deep learning.
+For ten years of GTC keynote addresses, Huang has been excited by GPU-based accelerations of entertainment, engineering design and now AI.    
+Unlike other Silicon Valley platform proponents, Huang's excitement does not emanate from the internet 'fog of freedom' [@Kelty_2014]. 
+It is an epistemic affect, a feeling of transition, which retrospectively validates the power of GPUs to change knowing.
+For Huang, sciences and data science/AI in particular vectorize the marketing of sales of GPUs for data centres.  
+The exact topic of the science -- medical imaging, molecular modelling, astrophysics or epidemiology -- serves as a platform for comparison of metrics such as FLOPS (Floating Point Operations Per Second).   
+Huang constantly enrols and substitutes GPU-based demonstrations for CPU-based science.  
+He recruits scientists as proponents of GPUs.
+Many scientists speak at GTC conferences.
+But the scientists themselves, having made the GPU into a vector of knowing,  are carried along by the multiplying GPUs. 
+They buy or rent GPUs, and find their work increasingly drawn into the data centre by the logics of acceleration and scale the GPUs demonstrate.  
+
+## Conclusions
+
+In _The Meaning of Truth_, James describes how realities verify and validate their own ideas:
+
+>Without such intermediating portions of concretely real experience the pragmatist sees no materials out of which the adaptive relation called truth can be built up [@James_1975,76] 
+
+Given GPUs as 'intermediating portions of concretely real experience,' platform knowing, like any other, is a trajectory that substitutes ideas for the continuities of sensible experience.     
+Without GPUs or the TPUs or the FPGAs, the adaptive relation called truth lacks materials.
+
+Two facets of GPU intermediating are constructive.
+Scientists do the accelerating.
+Developers platformise the acceleration.
+Scientists implicate GPUs with matrices, with the additions and multiplication of vectors.
+Their GPU publication frenzy points to a felt transition in knowing.
+Matrix and vector operations tend to proliferate, partly as an outgrowth of accelerations in science.
+Configured rightly, GPUs ease the frictions of acceleration. 
+The scientists reconfiguration of GPUs retroacts on the GPUs themselves.
+They become parallel stream processors, as well as graphics processors.
+Their architectures capture matrix multiplication in all its  science and engineering variants:  linear algebra, vector field flow, fast Fourier transforms, neural networks, etc.
+In their wake, developers implicate GPUs with platforms, setting and adjusting alignments between CPUs and GPUs, between data and models.
+The layers and libraries of GPU software render differences between platforms (office PC, ISS server, cloud compute) barely felt, except as changes in scale, as quantifiable differences in speed and cost. 
+Moved from the office and lab PCs to the centre of the data centre, packed in racks, GPUs transform platform knowing, re-shaping the streams and accumulations of images, sound, and words there into predictive models replete with categories, classifications, identifications and recognition.   
+
+In turn, the scientists' entanglements with GPUs are captured in a broader economisation.
+GPUs deeply platformise existing scientific, biomedical and other knowledge platforms. 
+Subducting biomedical imaging platforms, data centre GPUs retroactively upgrade them, affirming in the process the singular value of acceleration in platform knowing. 
+The feeling of acceleration becomes the principal felt transition. 
+No other value competes in this knowing.
+
+And what of others' implication in platform knowing?
+I'm curious to see if my trajectory from office PC to epidemiologist to cloud GPUs in their increasingly subducted instances resonates with any others.
+The lines of code, the invocation of instances and running of models may  not be familiar to most STS researchers, even if much STS research concerns platforms and infrastructures in their many scientific, industrial, governmental and media configurations.
+
+The lessons I draw from the instances of GPUs visited in this discussion concern ambivalence, implication and knowing.
+It is impossible not to be ambivalent about platform knowing.
+The ambivalence comes partly from implication.
+My knowing of the platforms is conditioned by those platforms and my implication with them.
+From the GPU, my office GPU in particular, forlornly commercial, unwittingly caught up in debates about knowledge, spared the heat and noise of gaming, I learn of the many threads and blocks put in place to make it possible.   
+
+
+## References
+
+
+

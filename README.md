@@ -1,4 +1,4 @@
-#  'The View from the GPU: the problem of platform knowing'
+#   The View from the GPU: the problem of platform knowing 
 
 Adrian Mackenzie, School of Sociology, Australian National University
 
